@@ -1,13 +1,15 @@
 #pragma once
 
 #include "olcPixelGameEngine.h"
+#include "rect.hpp"
+
+using namespace Util;
 
 class Pipe
 {
 public:
     Pipe(
-        int x,
-        int y,
+        Geometry::Rectangle frame,
         int spawnMinY,
         int spawnMaxY,
         int spawnX,
@@ -20,13 +22,15 @@ public:
     void Kill();
     void Spawn();
     void Update();
+    void GetFrame();
     olc::vi2d position;
 
 private:
-    bool isActive;
-    int killZone;
+    bool isActive = false;
+    int killZone = -50;
     int speed;
     int sMinY;
     int sMaxY;
     int sX;
+    Geometry::Rectangle frame;
 };

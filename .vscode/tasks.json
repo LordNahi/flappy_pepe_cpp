@@ -5,7 +5,20 @@
             "label": "build_game",
             "command": "g++",
             "args": [
-                "-o", "${workspaceFolder}\\build\\game.exe", "${workspaceFolder}\\src\\*.cpp", "-I${workspaceFolder}\\include", "-luser32", "-lgdi32", "-lopengl32", "-lgdiplus", "-lShlwapi", "-ldwmapi", "-lstdc++fs", "-static", "-std=c++17"
+                "-o",
+                "${workspaceFolder}\\build\\game.exe",
+                "${workspaceFolder}\\src\\*.cpp",
+                "-I${workspaceFolder}\\include",
+                "-I${workspaceFolder}\\include\\geometry",
+                "-luser32",
+                "-lgdi32",
+                "-lopengl32",
+                "-lgdiplus",
+                "-lShlwapi",
+                "-ldwmapi",
+                "-lstdc++fs",
+                "-static",
+                "-std=c++17"
             ],
             "options": {
                 "cwd": "D:\\msys64\\mingw64\\bin"

@@ -1,30 +1,28 @@
-#include "utilities.hpp"
+#include "util.hpp"
 #include "pipe.hpp"
+#include "rect.hpp"
 
 Pipe::Pipe(
-    int x,
-    int y,
+    Geometry::Rectangle frame,
     int spawnMinY,
     int spawnMaxY,
     int spawnX,
     int pipeSpeed)
 {
-    position.x = x;
-    position.y = y;
+    position.x = frame.x;
+    position.y = frame.y;
     sMinY = spawnMinY;
     sMaxY = spawnMaxY;
     sX = spawnX;
     speed = pipeSpeed;
-
-    killZone = -50;
-    isActive = false;
+    frame = frame;
 }
 
 void Pipe::Spawn()
 {
     isActive = true;
     position.x = sX;
-    position.y = randRange(sMinY, sMaxY);
+    position.y = Util::Math::randRange(sMinY, sMaxY);
 
     std::cout << "Pipe Spawned" << std::endl;
 };
@@ -42,5 +40,6 @@ void Pipe::Update()
     if (position.x < killZone)
         Kill();
 
-    std::cout << "Pipe new posX: " << position.x << std::endl;
+    frame.x = position.x;
+    frame.y = position.y;
 }
